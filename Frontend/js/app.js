@@ -1,2 +1,2 @@
 angular
-  .module("ghost-storiesApp", ['ngResource']);
+  .module("ghost-storiesApp", []);

@@ -7,8 +7,6 @@ function MainController($http){
   var self = this;
   self.all = [];
   this.story = {};
-
-  // this.words = Word.query();
  
  function getStories() {
    $http
