@@ -5,6 +5,7 @@ var TileSchema = mongoose.Schema({
   text: String,
   layout: Number, 
 });
+// layout- 1 image and text, 2 - image, 3 - text
 
 module.exports = mongoose.model('Tile', TileSchema);
 
