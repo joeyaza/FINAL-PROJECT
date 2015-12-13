@@ -1,4 +1,5 @@
 var Story = require('../models/Story');
+var Chapter = require('../models/Chapter');
 
 // GET
 function getAll(request, response) {
@@ -8,6 +9,8 @@ function getAll(request, response) {
     response.status(200).send(stories);
   }).select('-__v');
 }
+
+
 
 // POST
 function createStory(request, response) {
@@ -19,6 +22,7 @@ function createStory(request, response) {
     response.status(201).send(story);
   });
 }
+
 
 // GET
 function getStory(request, response) {
@@ -65,3 +69,4 @@ module.exports = {
   updateStory: updateStory,
   removeStory: removeStory
 }
+
