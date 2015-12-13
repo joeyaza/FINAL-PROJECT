@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-var ImageSchema = mongoose.Schema({
-  number: String,
-  pic: String
-});
+// var ImageSchema = mongoose.Schema({
+//   number: String,
+//   pic: String
+// });
 
-module.exports = mongoose.model('Image', ImageSchema);
+// module.exports = mongoose.model('Image', ImageSchema);
 

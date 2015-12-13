@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-var MusicSchema = mongoose.Schema({
-  number: String,
-  sound: String
-});
+// var MusicSchema = mongoose.Schema({
+//   number: String,
+//   sound: String
+// });
 
-module.exports = mongoose.model('Music', MusicSchema);
+// module.exports = mongoose.model('Music', MusicSchema);
 

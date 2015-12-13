@@ -1,5 +1,5 @@
 var Story = require('../models/Story');
-var Chapter = require('../models/Chapter');
+var Tile = require('../models/Tile');
 
 // GET
 function getAll(request, response) {
