@@ -4,34 +4,8 @@ var express = require('express'),
     methodOverride = require('method-override');
 
 var tilesController = require('../controllers/tiles');
-// var musicsController = require('../controllers/musics');
 var storiesController = require('../controllers/stories');
-// var imagesController = require('../controllers/images');
-// var usersController = require('../controllers/users');
-
-// ***** MUSICS ***** //
-
-// http://127.0.0.1:3000/musics
-// router.route('/musics')
-
-//   //GET 
-//   .get(musicsController.getAll)
-
-//   //POST
-//   .post(musicsController.createMusic);
-
-
-// router.route('/musics/:id')
-
-//   // GET
-//   .get(musicsController.getMusic)
-
-//   // PUT
-//   .put(musicsController.updateMusic)
-
-//   // DELETE
-//   .delete(musicsController.removeMusic);
-
+var usersController = require('../controllers/users');
 
 // ***** TILES ***** //
 
@@ -67,39 +41,39 @@ router.route('/stories')
   .post(storiesController.createStory);
 
 
-router.route('/stories/:id')
+router.route('/users/:id')
 
-  // GET return specific stories
-  .get(storiesController.getStory)
+  // GET return specific users
+  .get(usersController.getUser)
 
-  // PUT update existing stories
-  .put(storiesController.updateStory)
+  // PUT update existing users
+  .put(usersController.updateUser)
 
   // DELETE remove specific story from DB
-  .delete(storiesController.removeStory);
+  .delete(usersController.removeUser);
+
+  // ****** USERS ******* //
+  // http://127.0.0.1:3000/users
+  router.route('/users')
+
+    //GET all users
+    .get(usersController.getAll)
+
+    //POST a new story
+    .post(usersController.createUser);
 
 
-// // *******IMAGES ******** //
-// // http://127.0.0.1:3000/images
-// router.route('/images')
+  router.route('/users/:id')
 
-//   //GET all images
-//   .get(imagesController.getAll)
+    // GET return specific users
+    .get(usersController.getUser)
 
-//   //POST a new image
-//   .post(imagesController.createImage);
+    // PUT update existing users
+    .put(usersController.updateUser)
 
+    // DELETE remove specific story from DB
+    .delete(usersController.removeUser);
 
-// router.route('/images/:id')
-
-//   // GET return specific images
-//   .get(imagesController.getImage)
-
-//   // PUT update existing images
-//   .put(imagesController.updateImage)
-
-//   // DELETE remove specific images from DB
-//   .delete(imagesController.removeImage);
 
 
 module.exports = router

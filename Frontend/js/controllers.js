@@ -2,11 +2,15 @@ angular
   .module("ghost-storiesApp")
   .controller("MainController", MainController);
 
-MainController.$inject = ['$http', '$timeout'];
-function MainController($http, $timeout){
+MainController.$inject = ['$http', '$timeout', '$auth'];
+function MainController($http, $timeout, $auth){
   var self = this;
   self.all = [];
   this.story = {};
+
+  this.authenticate = function(provider) {
+    $auth.authenticate(provider);
+  }
  
   function getStories() {
     $http
@@ -27,7 +31,5 @@ function MainController($http, $timeout){
   }
 
  getStories();
-
-
 }
 
