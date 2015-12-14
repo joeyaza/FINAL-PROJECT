@@ -16,7 +16,7 @@ function tileView(){
         .css({
           backgroundImage: 'url(' + scope.tile.image + ')'
         });
-          
+
     }
 
   }

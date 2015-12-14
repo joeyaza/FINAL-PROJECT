@@ -3,6 +3,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
+  font-family: 'Josefin Slab', serif; 
 }
 
 .navigation {
@@ -37,12 +38,46 @@ html, body {
   margin-top: 10px;
 }
 
+p {
+  font-size: 30px;
+  // text-align: center;
+  width: calc(100% - 60px);
+}
+
 .slide {
   background-attachment: fixed;
-  width: 100%;
   height: 100%;
   position: relative;
   padding: 30px;
-  margin-top: 30px;
+  background-color: #1a1a1a;
+  color: #F2F2F2; 
+  
+  &[data-slide="1"] {
+    height: 900px;
+    p {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
+  &[data-slide="2"] {
+    height: 500px;
+  }
+
+  &[data-slide="3"] {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
+}
+
+.title, .author {
+  position: relative;
+  font-weight: bold;
+  font-size: 100px;
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-bottom: 10px;
 
 }
+

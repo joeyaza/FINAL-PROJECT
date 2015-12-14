@@ -14,16 +14,21 @@
 <script type="text/javascript" src="./js/app.js"></script>
 <script type="text/javascript" src="./js/controllers.js"></script>
 <script type="text/javascript" src="./js/tileView.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
   <title></title>
 </head>
 <body>
 
+
+
+
 <main ng-controller="MainController as main">
 
   <div ng-repeat="story in main.all">
-
-    <div ng-repeat="tile in story.tiles">
+    <div class="container" ng-repeat="tile in story.tiles">
+      <div class="title" ng-show="$first">{{story.title}}</div>
+      <div class="author" ng-show="$first">{{story.author}}</div>
       <tile tile="tile"></tile>
     </div>
   </div>

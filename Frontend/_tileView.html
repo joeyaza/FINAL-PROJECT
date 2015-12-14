@@ -1,10 +1,8 @@
-<div class="tile slide" data-slide="{{tile.layout}}" data-stellar-background-ratio="0.3" >
-
-  <p class= "1t" ng-show="(tile.layout===1)">{{tile.text}}</p>
-
-  <p class="3" ng-show="(tile.layout===3)">{{tile.text}}</p>
+<div class="tile slide" data-slide="{{tile.layout}}" data-stellar-background-ratio="{{ tile.stellarSpeed }}" >
+  <p class= "slide1" ng-show="(tile.layout!==2)">{{tile.text}}</p>
 
 </div>
+
 
 
 

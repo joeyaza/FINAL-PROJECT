@@ -1,2 +1,4 @@
 angular
   .module("ghost-storiesApp", []);
+
+  
