@@ -15,19 +15,22 @@
 <script type="text/javascript" src="./js/app.js"></script>
 <script type="text/javascript" src="./js/controllers.js"></script>
 <script type="text/javascript" src="./js/tileView.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
   <title></title>
 </head>
 <body>
 
-
-<body ng-controller="MainController as main">
-  <button ng-click="main.authenticate('facebook')">Sign in with Facebook</button>
-</body>
-
 <main ng-controller="MainController as main">
 
+  <nav class="tabs">
+    <button ui-sref-active="active" class="button" ui-sref="landing">Story</button>
+    <button ui-sref-active="active" class="button" ui-sref="home">Home</button>
+
+    <button ui-sref-active="active" class="button" ui-sref="newstory">New Story</button>
+<!--   </div> -->
+<button ng-click="main.authenticate('facebook')">Sign in with Facebook</button>
   <div ng-repeat="story in main.all">
     <div class="container" ng-repeat="tile in story.tiles">
       <div class="title" ng-show="$first">{{story.title}}</div>
@@ -35,6 +38,9 @@
       <tile tile="tile"></tile>
     </div>
   </div>
+
+
+
 </main>
 
 </body>

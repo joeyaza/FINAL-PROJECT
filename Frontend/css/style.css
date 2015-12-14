@@ -46,7 +46,8 @@ p {
     .slide[data-slide="1"] p {
       position: absolute;
       bottom: 0;
-      opacity: 0.8; }
+      opacity: 0.8;
+      width: 93%; }
   .slide[data-slide="2"] {
     height: 500px;
     opacity: 0.9; }
