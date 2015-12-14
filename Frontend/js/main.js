@@ -45,6 +45,26 @@ function initializeStellar($) {
             $('.navigation li[data-slide="2"]').removeClass('active');
         }
     });
+
+    (function fadeInDiv() {
+         var divs = $('#ghost');
+         var elem = divs.eq(Math.floor(Math.random() * divs.length));
+         if (!elem.is(':visible')) {
+             elem.prev().remove();
+             elem.animate({
+                 opacity: 1
+             }, Math.floor(Math.random() * 1000), fadeInDiv);
+         } else {
+
+             elem.animate({
+                 opacity: (Math.random() * 1)
+             }, Math.floor(Math.random() * 1000), function () {
+                 elem.before('<img>');
+                 window.setTimeout(fadeInDiv);
+                 //fadeInDiv();
+             });
+         }
+     })();
     //Create a function that will be passed a slide number and then will scroll to that slide using jquerys animate. The Jquery
     //easing plugin is also used, so we passed in the easing method of 'easeInOutQuint' which is available throught the plugin.
     // function goToByScroll(dataslide) {

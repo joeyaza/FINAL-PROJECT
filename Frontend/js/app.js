@@ -17,15 +17,15 @@ angular
     $stateProvider
       .state('home', {
          url: "/",
-         templateUrl: "./home.html"
-    })
-      .state('newstory', {
-        url: "/newstory",
-        templateUrl: "newstory.html"
-    })
+         templateUrl: "home.html"
+      })
       .state('story', {
         url: "/story",
         templateUrl: "story.html"
+      })  
+      .state('form', {
+        url: "/form",
+        templateUrl: "form.html"
       })
     //   .state('profile', {
     //     url: "/",

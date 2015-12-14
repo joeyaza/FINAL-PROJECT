@@ -17,6 +17,7 @@
 <script type="text/javascript" src="./js/tileView.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="./css/style.css">
   <title></title>
 </head>
@@ -25,20 +26,16 @@
 <main ng-controller="MainController as main">
 
   <nav class="tabs">
-    <button ui-sref-active="active" class="button" ui-sref="landing">Story</button>
-    <button ui-sref-active="active" class="button" ui-sref="home">Home</button>
+    <a ui-sref="home">Home</a>
+    <a ui-sref="story">Story</a>
+    <a ui-sref="form">Form</a>
+  </nav>
+  <button ng-click="main.authenticate('facebook')">Sign in with Facebook</button> 
 
-    <button ui-sref-active="active" class="button" ui-sref="newstory">New Story</button>
-<!--   </div> -->
-<button ng-click="main.authenticate('facebook')">Sign in with Facebook</button>
-  <div ng-repeat="story in main.all">
-    <div class="container" ng-repeat="tile in story.tiles">
-      <div class="title" ng-show="$first">{{story.title}}</div>
-      <div class="author" ng-show="$first">{{story.author}}</div>
-      <tile tile="tile"></tile>
-    </div>
-  </div>
-
+  <div class="partial" ui-view>
+  <!-- displays partial here... -->
+</div>
+</div>
 
 
 </main>
