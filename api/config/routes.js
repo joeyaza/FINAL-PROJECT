@@ -15,9 +15,8 @@ router.route('/tiles')
   //GET all tiles
   .get(tilesController.getAll)
 
-  //POST a new story
+  //POST a new tile
   .post(tilesController.createTile);
-
 
 router.route('/tiles/:id')
 
@@ -27,7 +26,7 @@ router.route('/tiles/:id')
   // PUT update existing tiles
   .put(tilesController.updateTile)
 
-  // DELETE remove specific story from DB
+  // DELETE remove specific tile from DB
   .delete(tilesController.removeTile);
 
 // ****** STORIES ******* //
@@ -40,17 +39,16 @@ router.route('/stories')
   //POST a new story
   .post(storiesController.createStory);
 
+router.route('/stories/:id')
 
-router.route('/users/:id')
+  // GET return specific stories
+  .get(storiesController.getStory)
 
-  // GET return specific users
-  .get(usersController.getUser)
-
-  // PUT update existing users
-  .put(usersController.updateUser)
+  // PUT update existing stories
+  .put(storiesController.updateStory)
 
   // DELETE remove specific story from DB
-  .delete(usersController.removeUser);
+  .delete(storiesController.removeStory);
 
   // ****** USERS ******* //
   // http://127.0.0.1:3000/users
@@ -61,7 +59,6 @@ router.route('/users/:id')
 
     //POST a new story
     .post(usersController.createUser);
-
 
   router.route('/users/:id')
 

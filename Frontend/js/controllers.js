@@ -2,16 +2,74 @@ angular
   .module("ghost-storiesApp")
   .controller("MainController", MainController);
 
-MainController.$inject = ['$http', '$timeout', '$auth'];
-function MainController($http, $timeout, $auth){
+MainController.$inject = ['$http', '$timeout', '$auth', 'User', 'Story'];
+function MainController($http, $timeout, $auth, User, Story){
   var self = this;
   self.all = [];
+  this.newUser = {};
+  this.showingUser = null;
+  this.newStory = {};
+  this.selectedUsersStories = [];
   this.story = {};
 
+  // for facebook
   this.authenticate = function(provider) {
     $auth.authenticate(provider);
   }
+
+  //the index
+  this.users = User.query();
+  this.stories = Story.query();
+
+  //create
+  this.addUser = function(){
+    User.save(self.newUser, function(user){
+      self.users.push(user);
+      self.newUser = {};
+    });
+  }
+
+  // Select
+  this.showUser = function(user){
+    self.showingUser = user;
+    self.selectedUsersStories = self.stories.filter(function(story){
+      if (self.showingUser.stories.indexOf(story._id) > -1){
+        return true;
+      }
+    });
+  }
+
+  // Unselect
+  this.unselect = function(){
+    self.showingUser = null;
+  }
  
+ // Update
+ this.updateUser = function(user){
+   User.update({ id: user._id }, self.showingUser, function(){
+     self.showingUser = null;
+   });
+ }
+
+ // Delete
+ this.deleteUser = function(user, index){
+   User.delete({ id: user._id });
+   self.users.splice(index, 1);
+ }
+
+ this.addStory = function() {
+   if (self.story._id) {
+     Story.update({ id: self.story._id }, self.story, function(){
+       self.story = {};
+     });
+   } else {
+     Story.save(self.story, function(story) {
+       self.stories.push(story);
+       self.story = {};
+     });
+   }
+ };
+
   function getStories() {
     $http
       .get('http://localhost:3000/stories')

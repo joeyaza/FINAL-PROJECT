@@ -1,5 +1,5 @@
 angular
-  .module("ghost-storiesApp", ['satellizer', 'ui.router'])
+  .module("ghost-storiesApp", ['satellizer', 'ui.router','ngResource'])
   .constant('API', 'http://localhost:3000') 
   .config(oauthConfig)
   .config(MainRouter);
@@ -27,10 +27,10 @@ angular
         url: "/form",
         templateUrl: "form.html"
       })
-    //   .state('profile', {
-    //     url: "/",
-    //     templateUrl: "profile.html"
-    // })
+      .state('stories', {
+        url: "/",
+        templateUrl: "stories.html"
+    })
     //   .state('instructions', {
     //     url: "/instructions",
     //     templateUrl: "instructions.html"
