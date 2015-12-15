@@ -1,7 +1,8 @@
 <div>
   <ul>
     <li ng-repeat="story in main.all">
-      <a href="#" ng-click="main.getStory(story)">{{story._id}}</a>
+    <a ui-sref="story" ng-click="main.getStory(story)">{{story._id}}</a>
+      <!-- <a ui-sref="story({story._id})">{{story._id}}</a> -->
       <h1>{{story.title}}</h1>
       <h2>{{story.author}}</h2>
     </li>

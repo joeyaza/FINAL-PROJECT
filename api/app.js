@@ -23,6 +23,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes);
 
+app.post('/signup', function(req, res) {
+  var userParams = req.body.user;
+
+  var user = new User(userParams);
+  user.save(function(err, user) {
+    if(err) res.status(401).send({message: err});
+    else res.status(200).send({ message: "user created"});
+  });
+});
+
+// logging in
+
+app.post('/login', function(req, res) {
+  var credentials = req.body.user;
+
+  User.findOne({email: credentials.email}, function(err, user){
+    if(err) return res.status(401).send({ message: err});
+    user.authenticate(credentials.password, function(err, isMatch){
+      if(isMatch) return res.status(200).send({ message: "Valid creds"})
+      else return res.status(401).send({ message: "incorrect creds"})
+    });
+  });
+});
 
 app.post('/auth/facebook', function(req, res) {
   var params = {

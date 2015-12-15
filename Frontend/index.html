@@ -27,14 +27,22 @@
 
 <main ng-controller="MainController as main">
 
-  <nav class="tabs">
-    <a ui-sref="home">Home</a>
-    <a ui-sref="story">Story</a>
-    <a ui-sref="form">Form</a>
-    <a ui-sref="stories">Stories</a>
-  </nav>
+  <header id="topnav">
+    <div class="inner">
+    <div class="logo">GHOST STORIES</div>
+      <nav class="tabs">
+        <a ui-sref="home">Home</a>
+        <a ui-sref="story">Story</a>
+        <a ui-sref="form">Form</a>
+        <a ui-sref="stories">Stories</a>
+        <a ui-sref="signup">Sign Up</a>
+        <a ui-sref="login">Log In</a>
+      </nav>
+      <button ng-click="main.authenticate('facebook')">Sign in with Facebook</button> 
+    </div>
+  </header>
+
   
-  <button ng-click="main.authenticate('facebook')">Sign in with Facebook</button> 
 
   <div class="partial" ui-view>
   <!-- displays partial here... -->

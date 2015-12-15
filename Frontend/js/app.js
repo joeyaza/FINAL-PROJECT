@@ -30,7 +30,15 @@ angular
       .state('stories', {
         url: "/stories",
         templateUrl: "stories.html"
-    })
-
+      })
+      .state('signup', {
+        url: "/signup",
+        templateUrl: "signup.html"
+      })
+      .state('login', {
+        url: "/login",
+        templateUrl: "login.html"
+      })
+      
     $urlRouterProvider.otherwise("/");
   }

@@ -103,18 +103,22 @@ function MainController($http, $timeout, $auth, User, Story){
   }
 
   self.getStory = function(story) {
-    console.log('click')
+    // console.log('click')
     $http
     .get('http://localhost:3000/stories/' + story._id)
     .then(function(res) {
-      console.log(res)
-        // self.story = res.data;
-        //     return tile;
-        //   });
-        // $timeout(function() {
-        //   initializeStellar(jQuery);
-        // },0);
-  })
+      // console.log(res)
+      // self.story = res.data;
+      self.story = res.data;
+      console.log(self.story);
+      self.story.tiles = self.story.tiles.map(function(tile) {
+        tile.stellarSpeed = tile.layout === 1 ? 0.6 : tile.layout === 2 ? 0.3 : 1.9;
+        return tile;
+      });
+    });
+    $timeout(function() {
+      initializeStellar(jQuery);
+    },0);
   }
 
 
