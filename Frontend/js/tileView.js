@@ -11,11 +11,12 @@ function tileView(){
       tile: '='
     },
     link: function(scope, element, attrs) {
-
-      element
-        .css({
-          backgroundImage: 'url(' + scope.tile.image + ')'
-        });
+      if(scope.tile.image){
+        element
+          .css({
+            backgroundImage: 'url(' + scope.tile.image + ')'
+          });
+      }
 
     }
 

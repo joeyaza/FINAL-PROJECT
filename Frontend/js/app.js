@@ -17,27 +17,31 @@ angular
     $stateProvider
       .state('home', {
          url: "/",
-         templateUrl: "home.html"
+         templateUrl: "../states/home.html"
       })
       .state('story', {
         url: "/story",
-        templateUrl: "story.html"
+        templateUrl: "../states/story.html"
       })  
       .state('form', {
         url: "/form",
-        templateUrl: "form.html"
+        templateUrl: "../states/form.html"
       })
       .state('stories', {
         url: "/stories",
-        templateUrl: "stories.html"
+        templateUrl: "../states/stories.html"
       })
       .state('signup', {
         url: "/signup",
-        templateUrl: "signup.html"
+        templateUrl: "../states/signup.html"
       })
       .state('login', {
         url: "/login",
-        templateUrl: "login.html"
+        templateUrl: "../states/login.html"
+      })
+      .state('example', {
+        url: "/example",
+        templateUrl: "../states/example.html"
       })
       
     $urlRouterProvider.otherwise("/");

@@ -45,44 +45,45 @@ function MainController($http, $timeout, $auth, User, Story){
     self.showingUser = null;
   }
  
- // Update
- this.updateUser = function(user){
-   User.update({ id: user._id }, self.showingUser, function(){
-     self.showingUser = null;
-   });
- }
+  // Update
+  this.updateUser = function(user){
+    User.update({ id: user._id }, self.showingUser, function(){
+      self.showingUser = null;
+    });
+  }
 
- // Delete
- this.deleteUser = function(user, index){
-   User.delete({ id: user._id });
-   self.users.splice(index, 1);
- }
+  // Delete
+  this.deleteUser = function(user, index){
+    User.delete({ id: user._id }, function() {
+      self.users.splice(index, 1);
+    });
+  }
 
- this.deleteStory = function(story){
-   Story.delete({ id: story._id });
-   var index = self.stories.indexOf(story);
-   self.stories.splice(index, 1);
- }
+  this.deleteStory = function(story){
+    Story.delete({ id: story._id });
+    var index = self.stories.indexOf(story);
+    self.stories.splice(index, 1);
+  }
 
- this.addTile = function($event) {
-  $event.preventDefault();
-  self.story.tiles.push({});
- }
+  this.addTile = function($event) {
+    $event.preventDefault();
+    self.story.tiles.push({});
+  }
 
- this.addStory = function() {
-   if (self.story._id) {
+  this.addStory = function() {
+    if (self.story._id) {
      Story.update({ id: self.story._id }, self.story, function(){
        self.story = {};
      });
-   } else {
-     Story.save(self.story, function(story) {
-       self.stories.push(story)
-       self.story = {
+    } else {
+      Story.save(self.story, function(story) {
+        self.stories.push(story)
+        self.story = {
           tiles: [{}]
         }
-     });
-   }
- };
+      });
+    }
+  }
 
   function getStories() {
     $http
@@ -96,9 +97,9 @@ function MainController($http, $timeout, $auth, User, Story){
           });
         });
         console.log(self.all);
-        $timeout(function() {
-          initializeStellar(jQuery);
-        },0);
+        // $timeout(function() {
+        // //   initializeStellar(jQuery);
+        // },0);
       });
   }
 
@@ -112,19 +113,17 @@ function MainController($http, $timeout, $auth, User, Story){
       self.story = res.data;
       console.log(self.story);
       self.story.tiles = self.story.tiles.map(function(tile) {
-        tile.stellarSpeed = tile.layout === 1 ? 0.6 : tile.layout === 2 ? 0.3 : 1.9;
+        tile.stellarSpeed = tile.layout === 1 ? 0.3 : tile.layout === 2 ? 2 : 1;
         return tile;
       });
+
+      // $timeout(function() {
+      // //   initializeStellar(jQuery);
+      // },0);
     });
-    $timeout(function() {
-      initializeStellar(jQuery);
-    },0);
+
   }
 
 
- getStories();
- // getStory();
-
-
+  getStories();
 }
-

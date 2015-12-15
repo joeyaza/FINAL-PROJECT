@@ -39,13 +39,12 @@ html, body {
 }
 
 p {
-  font-size: 30px;
+  font-size: 22px;
   // text-align: center;
   width: calc(100% - 50px);
   text-shadow: 2px 2px black;
-  margin-left: 30px;
-  margin-right: 30px;
-
+  margin-left: 25px;
+  margin-right: 25px;
 
 }
 
@@ -74,8 +73,8 @@ p {
 
   &[data-slide="3"] {
     height: auto;
-    padding-top: 100px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     opacity: 0.92;
   }
 }
@@ -91,163 +90,101 @@ p {
   // background:linear-gradiant(#333333)
   font-family: 'Sorts Mill Goudy', serif;
   font-size: 80px;
+  margin-top: -76px;
  
 }
+
+//the writing
 .ghost {
   font-size: 80px;
-  margin-top: 0px;
-  padding-top: 40px; 
-  float:left;
-  margin-left: 50px;
+  margin-top: -10px;
+  padding-top: 90px; 
+  z-index: -1;
+  text-align: center;
 
+}
+
+
+
+
+//the picture
+#ghost {
+margin-top: -71px;
+  width: 1400px;
+  height: 550px;
+  margin-left: 20px;
+  z-index: 1;
+  float:center;
+  -webkit-filter: blur(10px);
+}
+
+#ghost:hover {
+  -webkit-filter: blur(0px);
 }
 
 #ghost {
-margin-top: -170px;
-  width: 550px;
-  height: 630px;
-  margin-left: 430px;
-  float:right;
-  margin-right: 40px; 
+   color: transparent;
+   text-shadow: white 0 0 1px;
+
+   -webkit-transition: text-shadow 0.2s ease-in-out;
+   -moz-transition:    text-shadow 0.2s ease-in-out;
+   transition:         text-shadow 0.2s ease-in-out;
 }
 
 .descrip {
-  
+  margin-top: -52px;
 }
 
+.title {
+  margin-top: 50px;
+}
 .title, .author {
   position: relative;
   font-weight: bold;
   font-size: 100px;
   margin-left: 50px;
-  margin-top: 50px;
-  margin-bottom: 10px;
   text-shadow: 1px 1px #999999;
 }
 
-/* apply a natural box layout model to all elements */
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
 
-::selection {
-  background: #000;
-  color: #aaf;
-}
-.alternate ::selection {
-  background: #c00;
-  color: #000;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  height: 2000px;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-ul, li, h1, h2, h3, h4, h5, h6, p, a, .logo {
- font-family: 'Sorts Mill Goudy', serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  margin: 0;
-  padding: 0;
-}
-
-.inner {
-  width: 800px;
-  position: relative;
-  margin: 0 auto;
-}
-
-header {
+.tabs {
+  text-align: center;
+  word-spacing: 25px;
+  font-size: 20px;
   position: fixed;
-  width: 100%;
-  padding-top: 20px;
-  background: #000;
-  transition: 0.7s all;
-  z-index: 100;
-  height: 50px;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 50px;
+    margin-top: 20px;
+ }
+
+ a:hover {
+  opacity: 0.6;
+ }
+
+a {
+  color: white;
 }
 
-header.alt-header {
-  background: #fff;
+
+a:link {
+    text-decoration: none;
 }
 
-.alt-header a {
-  color: #000;
+a:visited {
+    text-decoration: none;
 }
 
-body.header-fixed header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  padding-top: 0;
-  width: 100%;
-  z-index: 2;
-  color:black;
+a:hover {
+    text-decoration: none;
 }
 
-li {
-  list-style: none;
+a:active {
+    text-decoration: none;
 }
 
-nav {
-  overflow: hidden;
-}
 
-nav ul {
-  float: right;
-}
 
-nav li {
-  display: inline;
-  float: left;
-}
 
-nav a {
-  display: inline-block;
-  float: right;
-  color: #fff;
-  text-decoration: none;
-  padding: 25px;
-  transition: 0.3s all;
-}
-
-nav a:hover {
-  background: black;
-}
-
-.logo {
-  float: left;
-  color: #fff;
-  font-size: 50px;
-  line-height: 50px;
-  transition: 0.7s all;
-  margin-left: -300px;
-  opacity:0;
-}
-
-body.header-fixed .logo {
-  color:white;
-  opacity:1;
-} 
-
-.alt-header .logo {
-  color: #000;
-}
-
-body.header-fixed .logo {
-  font-size: 30px;
-}
-
-.alternate {
-  background: #000;
-  color: #fff;
-}
-
-section .inner {
-  padding-top: 200px;
-}
