@@ -3,7 +3,11 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: 'Josefin Slab', serif; }
+  font-family: 'Josefin Slab', serif;
+  background-color: black; }
+
+h2 {
+  color: white; }
 
 .navigation {
   padding: 0;
@@ -62,7 +66,7 @@ p {
   height: 100%; }
 
 .home {
-  background-color: #1a1a1a;
+  background-color: black;
   color: white;
   height: 800px;
   font-family: 'Sorts Mill Goudy', serif;
@@ -99,16 +103,22 @@ p {
   margin-top: -52px; }
 
 .title {
-  margin-top: 50px; }
+  margin-top: 50px;
+  color: white; }
+
+.author {
+  color: white;
+  margin-bottom: 10px; }
 
 .title, .author {
   position: relative;
   font-weight: bold;
   font-size: 100px;
   margin-left: 50px;
-  text-shadow: 1px 1px #999999; }
+  text-shadow: 1px 1px #999999;
+  color: white; }
 
-.tabs {
+.tab {
   text-align: center;
   word-spacing: 25px;
   font-size: 20px;
@@ -118,10 +128,12 @@ p {
   z-index: 9999;
   width: 100%;
   height: 50px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  opacity: 0;
+  color: white; }
 
-a:hover {
-  opacity: 0.6; }
+.tab:hover {
+  opacity: 1; }
 
 a {
   color: white; }

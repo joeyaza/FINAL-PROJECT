@@ -4,6 +4,11 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: 'Josefin Slab', serif; 
+  background-color: black;
+}
+
+h2 {
+  color: white;
 }
 
 .navigation {
@@ -84,7 +89,7 @@ p {
 }
 
 .home {
-  background-color: #1a1a1a;
+  background-color: black;
   color: white;
   height:800px;
   // background:linear-gradiant(#333333)
@@ -137,6 +142,12 @@ margin-top: -71px;
 
 .title {
   margin-top: 50px;
+  color: white;
+}
+
+.author {
+  color: white;
+  margin-bottom: 10px;
 }
 .title, .author {
   position: relative;
@@ -144,10 +155,11 @@ margin-top: -71px;
   font-size: 100px;
   margin-left: 50px;
   text-shadow: 1px 1px #999999;
+  color: white;
 }
 
 
-.tabs {
+.tab {
   text-align: center;
   word-spacing: 25px;
   font-size: 20px;
@@ -158,13 +170,22 @@ margin-top: -71px;
     width: 100%;
     height: 50px;
     margin-top: 20px;
+    opacity: 0;
+    color: white;
  }
 
+ .tab:hover {
+  opacity: 1;
+ }
+
+
+
  a:hover {
-  opacity: 0.6;
+
  }
 
 a {
+
   color: white;
 }
 
