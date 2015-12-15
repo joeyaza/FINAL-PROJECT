@@ -57,6 +57,12 @@ function MainController($http, $timeout, $auth, User, Story){
    self.users.splice(index, 1);
  }
 
+ this.deleteStory = function(story){
+   Story.delete({ id: story._id });
+   var index = self.stories.indexOf(story);
+   self.stories.splice(index, 1);
+ }
+
  this.addStory = function() {
    if (self.story._id) {
      Story.update({ id: self.story._id }, self.story, function(){
@@ -65,7 +71,7 @@ function MainController($http, $timeout, $auth, User, Story){
    } else {
      Story.save(self.story, function(story) {
        self.stories.push(story);
-       self.story = {};
+       self.story = {}
      });
    }
  };
