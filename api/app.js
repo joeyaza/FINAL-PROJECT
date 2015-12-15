@@ -9,13 +9,13 @@ var request = require('request-promise');
 // qs is used to decode querystrings into objects foo=1&bar=2 becomes { foo: 1, bar: 2 }
 var app        = express();
 var mongoose   = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/ghost-stories');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/ghost-stories');
 var routes     = require('./config/routes');
 var User = require('./models/User');
 var config = require('./config/config.js');
 
 app.use(cors({
-  origin: 'http://localhost:8000',
+  origin: process.env.MONGOLAB_URI || 'http://localhost:8000',
   credentials: true
 }));
 app.use(logger('dev'));
@@ -94,5 +94,5 @@ app.post('/auth/facebook', function(req, res) {
   });
 
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 console.log("app is listening .....!")
