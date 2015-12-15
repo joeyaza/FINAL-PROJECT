@@ -1,19 +1,36 @@
 <h4>Add a grizzly story..</h4>
 <div class="form">
-  <form ng-submit="main.addStory()">
+  <form class ="form" ng-submit="main.addStory()">
   
+      <div class="title">
       <label for="title">Story Title</label>
       <input type="text" name="title" ng-model="main.story.title">
-
+      </div>
+      <div class="author">
       <label for="author">Author</label>
       <input type="text" name="author" ng-model="main.story.author">
+      </div>
+
 
       <div ng-repeat="tile in main.story.tiles">
+        <div class="form-text">
         <label for="text">Tile text</label>
         <textarea type="text" name="text" ng-model="tile.text"></textarea>
+        </div>
 
+        <div class="form-image">
         <label for="image">And an image</label>
         <input type="text" name="image" ng-model="tile.image">
+        </div>
+
+        <div class="form-layout">
+        <label for ="layout">Whats the layout?</label>
+        <select name="layout" ng-model="tile.layout">
+          <option value="1">Text and Image</option>
+          <option value="2">Just an Image</option>
+          <option value="3">Just text</option>
+        </select>
+        </div>
 
         <button ng-click="main.addTile($event)">Add tile</button>
       </div>

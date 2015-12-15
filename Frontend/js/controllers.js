@@ -84,8 +84,6 @@ function MainController($http, $timeout, $auth, User, Story){
    }
  };
 
-
-
   function getStories() {
     $http
       .get('http://localhost:3000/stories')
@@ -104,6 +102,25 @@ function MainController($http, $timeout, $auth, User, Story){
       });
   }
 
+  self.getStory = function(story) {
+    console.log('click')
+    $http
+    .get('http://localhost:3000/stories/' + story._id)
+    .then(function(res) {
+      console.log(res)
+        // self.story = res.data;
+        //     return tile;
+        //   });
+        // $timeout(function() {
+        //   initializeStellar(jQuery);
+        // },0);
+  })
+  }
+
+
  getStories();
+ // getStory();
+
+
 }
 

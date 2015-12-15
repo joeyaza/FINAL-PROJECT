@@ -1,14 +1,9 @@
-<div ng-repeat="story in main.all">
-<div ng-repeat="tile in story.tiles">
-<!--   <div class="container" ng-repeat="tile in story.tiles"> -->
-<!--     <div class="title" ng-show="$first">{{story.title}}</div>
-    <div class="author" ng-show="$first">{{story.author}}</div> -->
-    {{story.title}}
-    {{story.author}}
-    {{story._id}}
-    <button ng-click="main.deleteStory(story)">D</button>
-<!--     {{tile.text}}
-    {{tile.image}} -->
-<!--     <tile tile="tile"></tile> -->
-  </div>
+<div>
+  <ul>
+    <li ng-repeat="story in main.all">
+      <a href="#" ng-click="main.getStory(story)">{{story._id}}</a>
+      <h1>{{story.title}}</h1>
+      <h2>{{story.author}}</h2>
+    </li>
+  </ul>
 </div>

@@ -31,9 +31,6 @@ angular
         url: "/stories",
         templateUrl: "stories.html"
     })
-    //   .state('instructions', {
-    //     url: "/instructions",
-    //     templateUrl: "instructions.html"
 
     $urlRouterProvider.otherwise("/");
   }
