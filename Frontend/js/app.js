@@ -28,7 +28,7 @@ angular
         templateUrl: "form.html"
       })
       .state('stories', {
-        url: "/",
+        url: "/stories",
         templateUrl: "stories.html"
     })
     //   .state('instructions', {

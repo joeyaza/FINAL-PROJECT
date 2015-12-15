@@ -37,8 +37,8 @@ function updateUser(request, response) {
   User.findById({_id: id}, function(error, user) {
     if(error) response.status(404).send(error);
 
-    if(request.body.image) user.image = request.body.image;
-    if(request.body.text) user.text = request.body.text;
+    if(request.body.email) user.email = request.body.email;
+    if(request.body.password) user.password = request.body.password;
 
     user.save(function(error) {
       if(error) response.status(500).send(error);

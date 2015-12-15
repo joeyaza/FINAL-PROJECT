@@ -3,16 +3,20 @@
   <form ng-submit="main.addStory()">
   
       <label for="title">Story Title</label>
-      <input type="text" name="title" ng-model="main.newStory.title">
+      <input type="text" name="title" ng-model="main.story.title">
 
       <label for="author">Author</label>
-      <input type="text" name="author" ng-model="main.newStory.author">
+      <input type="text" name="author" ng-model="main.story.author">
 
-      <label for="paragraph">1st Paragraph (max 150 words)</label>
-      <input type="text" name="paragraph" ng-model="main.newStory.tile.text">
+      <div ng-repeat="tile in main.story.tiles">
+        <label for="text">Tile text</label>
+        <textarea type="text" name="text" ng-model="tile.text"></textarea>
 
-      <label for="image">And an image</label>
-      <input type="text" name="image" ng-model="main.newStory.tile.image">
+        <label for="image">And an image</label>
+        <input type="text" name="image" ng-model="tile.image">
+
+        <button ng-click="main.addTile($event)">Add tile</button>
+      </div>
   
       <br>
       <input type="submit" value="Add Story">

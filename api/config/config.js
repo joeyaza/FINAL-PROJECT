@@ -1,4 +1,6 @@
 module.exports = {
+  'secret': 'jsonwebtokensaregreat',
+  'database': 'mongodb://localhost:27017/passport-and-jwts',
   port: process.env.PORT || 3000,
   databaseUrl: 'mongodb://localhost/satellizer',
   secret: 'aNewSecret',

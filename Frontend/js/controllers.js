@@ -8,9 +8,10 @@ function MainController($http, $timeout, $auth, User, Story){
   self.all = [];
   this.newUser = {};
   this.showingUser = null;
-  this.newStory = {};
   this.selectedUsersStories = [];
-  this.story = {};
+  this.story = {
+    tiles: [{}]
+  };
 
   // for facebook
   this.authenticate = function(provider) {
@@ -63,6 +64,11 @@ function MainController($http, $timeout, $auth, User, Story){
    self.stories.splice(index, 1);
  }
 
+ this.addTile = function($event) {
+  $event.preventDefault();
+  self.story.tiles.push({});
+ }
+
  this.addStory = function() {
    if (self.story._id) {
      Story.update({ id: self.story._id }, self.story, function(){
@@ -70,11 +76,15 @@ function MainController($http, $timeout, $auth, User, Story){
      });
    } else {
      Story.save(self.story, function(story) {
-       self.stories.push(story);
-       self.story = {}
+       self.stories.push(story)
+       self.story = {
+          tiles: [{}]
+        }
      });
    }
  };
+
+
 
   function getStories() {
     $http
