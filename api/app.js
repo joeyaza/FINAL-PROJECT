@@ -14,10 +14,7 @@ var routes     = require('./config/routes');
 var User = require('./models/User');
 var config = require('./config/config.js');
 
-app.use(cors({
-  origin: process.env.MONGOLAB_URI || 'http://localhost:8000',
-  credentials: true
-}));
+app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
