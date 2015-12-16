@@ -13,6 +13,7 @@ function MainController($http, $timeout, $auth, User, Story){
     tiles: [{}]
   };
 
+
   // for facebook
   this.authenticate = function(provider) {
     $auth.authenticate(provider);
@@ -20,7 +21,11 @@ function MainController($http, $timeout, $auth, User, Story){
 
   //the index
   this.users = User.query();
-  this.stories = Story.query();
+  
+
+  function getStories() {
+    self.all = Story.query();
+  }
 
   //create
   this.addUser = function(){
@@ -60,14 +65,20 @@ function MainController($http, $timeout, $auth, User, Story){
   }
 
   this.deleteStory = function(story){
-    Story.delete({ id: story._id });
-    var index = self.stories.indexOf(story);
-    self.stories.splice(index, 1);
+    Story.delete({ id: story._id }, function(story){
+      var index = self.all.indexOf(story);
+      self.all.splice(index, 1);
+    });
   }
 
   this.addTile = function($event) {
     $event.preventDefault();
     self.story.tiles.push({});
+  }
+
+  this.dropdown = function() {
+    event.preventDefault();
+    $('.dropdown-button').dropdown()
   }
 
   this.addStory = function() {
@@ -85,23 +96,23 @@ function MainController($http, $timeout, $auth, User, Story){
     }
   }
 
-  function getStories() {
-    $http
-      .get('https://ghoststoriesapi.herokuapp.com/stories')
-      .then(function(res) {
-        self.all = res.data;
-        self.all.forEach(function(story, i) {
-          self.all[i].tiles = self.all[i].tiles.map(function(tile) {
-            tile.stellarSpeed = tile.layout === 1 ? 0.6 : tile.layout === 2 ? 0.3 : 1.9;
-            return tile;
-          });
-        });
-        console.log(self.all);
-        // $timeout(function() {
-        // //   initializeStellar(jQuery);
-        // },0);
-      });
-  }
+  // function getStories() {
+  //   $http
+  //     .get('https://ghoststoriesapi.herokuapp.com/stories')
+  //     .then(function(res) {
+  //       self.all = res.data;
+  //       self.all.forEach(function(story, i) {
+  //         self.all[i].tiles = self.all[i].tiles.map(function(tile) {
+  //           tile.stellarSpeed = tile.layout === 1 ? 0.6 : tile.layout === 2 ? 0.3 : 1.9;
+  //           return tile;
+  //         });
+  //       });
+  //       console.log(self.all);
+  //       // $timeout(function() {
+  //       // //   initializeStellar(jQuery);
+  //       // },0);
+  //     });
+  // }
 
   self.getStory = function(story) {
     // console.log('click')
@@ -126,4 +137,7 @@ function MainController($http, $timeout, $auth, User, Story){
 
 
   getStories();
+
+
+  
 }

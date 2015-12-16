@@ -12,7 +12,7 @@ var mongoose   = require('mongoose');
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/ghost-stories');
 var routes     = require('./config/routes');
 var User = require('./models/User');
-var config = require('./config/config.js');
+var config = require('./config/config');
 
 app.use(cors());
 app.use(logger('dev'));

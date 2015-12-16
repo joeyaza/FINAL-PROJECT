@@ -33,18 +33,20 @@ h2 {
 
 p {
   font-size: 22px;
+  color: white;
   width: calc(100% - 50px);
   text-shadow: 2px 2px black;
   margin-left: 25px;
   margin-right: 25px; }
 
 .slide {
+  filter: brightness(100%);
   background-attachment: fixed;
   height: 100%;
   position: relative;
   padding: 30px;
   background-color: #000000;
-  color: #F2F2F2; }
+  color: white; }
   .slide[data-slide="1"] {
     height: 900px; }
     .slide[data-slide="1"] p {
@@ -80,6 +82,9 @@ p {
   z-index: -1;
   text-align: center; }
 
+.slide1 {
+  color: #fff; }
+
 #ghost {
   margin-top: -71px;
   width: 1400px;
@@ -87,7 +92,9 @@ p {
   margin-left: 20px;
   z-index: 1;
   float: center;
-  -webkit-filter: blur(10px); }
+  -webkit-filter: blur(10px);
+  max-width: 1400px;
+  max-height: 550px; }
 
 #ghost:hover {
   -webkit-filter: blur(0px); }
@@ -104,17 +111,36 @@ p {
 
 .title {
   margin-top: 50px;
-  color: white; }
-
-.author {
   color: white;
-  margin-bottom: 10px; }
+  max-height: 40%; }
 
-.title, .author {
+.author1 {
+  color: white;
+  max-height: 40%;
   position: relative;
   font-weight: bold;
   font-size: 100px;
   margin-left: 50px;
+  text-shadow: 1px 1px grey;
+  color: white; }
+
+.title1 {
+  margin-top: 50px;
+  color: white;
+  max-height: 40%;
+  position: relative;
+  font-weight: bold;
+  font-size: 100px;
+  margin-left: 50px;
+  text-shadow: 1px 1px grey;
+  color: white; }
+
+.author {
+  margin-left: -30px; }
+
+.title, .author {
+  position: relative;
+  font-weight: bold;
   text-shadow: 1px 1px #999999;
   color: white; }
 
@@ -135,6 +161,9 @@ p {
 .tab:hover {
   opacity: 1; }
 
+a:hover {
+  color: gray; }
+
 a {
   color: white; }
 
@@ -149,5 +178,61 @@ a:hover {
 
 a:active {
   text-decoration: none; }
+
+.white {
+  text: white;
+  color: white; }
+
+label {
+  font-size: 120%; }
+
+select {
+  display: block; }
+
+textarea {
+  color: white; }
+
+input {
+  color: white; }
+
+.ng-pristine ng-untouched ng-valid {
+  background-color: white;
+  text: white;
+  color: white; }
+
+.ng-valid ng-dirty ng-valid-parse ng-touched {
+  color: white; }
+
+.signup {
+  margin-top: 50px; }
+
+.login {
+  margin-top: 50px; }
+
+h2#login {
+  margin-left: 200px; }
+
+.row .col.s12 {
+  margin-left: 50px;
+  max-width: 40%;
+  max-height: 40%;
+  display: inline; }
+
+.row {
+  width: 90%; }
+
+#logo {
+  height: 30px;
+  width: 30px; }
+
+.horror {
+  font-size: 80px;
+  margin-top: -10px;
+  padding-top: 90px;
+  z-index: -1;
+  text-align: center; }
+
+div.card-image img {
+  width: 20px; }
 
 /*# sourceMappingURL=style.css.map */

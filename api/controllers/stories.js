@@ -58,7 +58,7 @@ function removeStory(request, response) {
   Story.remove({_id: id}, function(error) {
     if(error) return response.status(404).send(error);
 
-    response.status(200);
+    return response.status(200).json({message: "deleted story"});
   }).select('-__v');
 }
 

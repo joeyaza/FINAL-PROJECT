@@ -1,6 +1,6 @@
 angular
   .module("ghost-storiesApp", ['satellizer', 'ui.router','ngResource'])
-  .constant('API', 'https://ghoststoriesapi.herokuapp.com') 
+  .constant('API', 'http://ghoststoriesapi.herokuapp.com') 
   .config(oauthConfig)
   .config(MainRouter);
   
@@ -17,31 +17,31 @@ angular
     $stateProvider
       .state('home', {
          url: "/",
-         templateUrl: "../states/home.html"
+         templateUrl: "states/home.html"
       })
       .state('story', {
         url: "/story",
-        templateUrl: "../states/story.html"
+        templateUrl: "states/story.html"
       })  
       .state('form', {
         url: "/form",
-        templateUrl: "../states/form.html"
+        templateUrl: "states/form.html"
       })
       .state('stories', {
         url: "/stories",
-        templateUrl: "../states/stories.html"
+        templateUrl: "states/stories.html"
       })
       .state('signup', {
         url: "/signup",
-        templateUrl: "../states/signup.html"
+        templateUrl: "states/signup.html"
       })
       .state('login', {
         url: "/login",
-        templateUrl: "../states/login.html"
+        templateUrl: "states/login.html"
       })
       .state('example', {
         url: "/example",
-        templateUrl: "../states/example.html"
+        templateUrl: "states/example.html"
       })
       
     $urlRouterProvider.otherwise("/");

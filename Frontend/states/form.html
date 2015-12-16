@@ -26,12 +26,13 @@
         </div>
 
         <div class="form-layout">
-        <label for ="layout">Whats the layout?</label>
-        <select name="layout" ng-model="tile.layout">
-          <option value="1">Text and Image</option>
-          <option value="2">Just an Image</option>
-          <option value="3">Just text</option>
-        </select>
+        <!-- <label for ="layout">Whats the layout?</label> -->
+          <select name="layout" ng-model="tile.layout">
+            <option value="">And the Layout?</option>
+            <option value="1">Text and Image</option>
+            <option value="2">Just an Image</option>
+            <option value="3">Just text</option>
+          </select>
         </div>
 
         <button ng-click="main.addTile($event)">Add tile</button>

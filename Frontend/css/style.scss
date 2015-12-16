@@ -45,6 +45,7 @@ h2 {
 
 p {
   font-size: 22px;
+  color: white;
   // text-align: center;
   width: calc(100% - 50px);
   text-shadow: 2px 2px black;
@@ -54,12 +55,14 @@ p {
 }
 
 .slide {
+  // opacity: .5;
+  filter: brightness(100%);
   background-attachment: fixed;
   height: 100%;
   position: relative;
   padding: 30px;
   background-color: #000000;
-  color: #F2F2F2; 
+  color: white; 
   
   &[data-slide="1"] {
     height: 900px;
@@ -109,7 +112,10 @@ p {
 
 }
 
-
+.slide1 {
+  color:#fff;
+  // text-shadow: 2px 1px black;
+}
 
 
 //the picture
@@ -121,6 +127,8 @@ margin-top: -71px;
   z-index: 1;
   float:center;
   -webkit-filter: blur(10px);
+  max-width: 1400px;
+  max-height: 550px;
 }
 
 #ghost:hover {
@@ -143,17 +151,43 @@ margin-top: -71px;
 .title {
   margin-top: 50px;
   color: white;
+  max-height: 40%;
 }
 
-.author {
+.author1 {
+
   color: white;
-  margin-bottom: 10px;
-}
-.title, .author {
+  max-height: 40%;
   position: relative;
   font-weight: bold;
   font-size: 100px;
   margin-left: 50px;
+  text-shadow: 1px 1px grey;
+  color: white;
+}
+
+.title1 {
+  margin-top: 50px;
+  color: white;
+  max-height: 40%;
+  position: relative;
+  font-weight: bold;
+  font-size: 100px;
+  margin-left: 50px;
+  text-shadow: 1px 1px grey;
+  color: white;
+
+}
+
+.author {
+  margin-left:-30px;
+}
+
+
+.title, .author {
+  position: relative;
+  font-weight: bold;
+  // font-size: 100px;
   text-shadow: 1px 1px #999999;
   color: white;
 }
@@ -182,6 +216,7 @@ margin-top: -71px;
 
  a:hover {
 
+   color: darken(white, 50%);
  }
 
 a {
@@ -206,6 +241,78 @@ a:active {
     text-decoration: none;
 }
 
+.white {
 
+  text:white;
+  color: white;
+}
 
+label {
+  font-size: 120%;
+}
 
+select {
+  display: block;
+}
+
+textarea {
+  color:white;
+}
+
+input {
+  color:white;
+}
+
+.ng-pristine ng-untouched ng-valid {
+  background-color: white;
+  text:white;
+  color:white;
+}
+
+.ng-valid ng-dirty ng-valid-parse ng-touched {
+  color:white;
+}
+
+// .stellar {
+//   background-color: white;
+// }
+
+.signup {
+  margin-top: 50px;
+}
+
+.login {
+  margin-top: 50px;
+}
+
+h2#login {
+  margin-left:200px;
+}
+
+.row .col.s12 {
+  margin-left: 50px;
+  max-width: 40%;
+  max-height: 40%;
+  display:inline;
+}
+
+.row {
+  width: 90%;
+}
+
+#logo {
+  height:30px;
+  width:30px;
+}
+
+.horror {
+  font-size: 80px;
+  margin-top: -10px;
+  padding-top: 90px; 
+  z-index: -1;
+  text-align: center;
+}
+
+div.card-image img {
+  width: 20px;
+}
