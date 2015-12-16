@@ -1,6 +1,6 @@
 angular
   .module("ghost-storiesApp", ['satellizer', 'ui.router','ngResource'])
-  .constant('API', 'http://localhost:3000') 
+  .constant('API', 'https://ghoststoriesapi.herokuapp.com/') 
   .config(oauthConfig)
   .config(MainRouter);
   

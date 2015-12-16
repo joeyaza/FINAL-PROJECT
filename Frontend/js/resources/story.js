@@ -4,7 +4,7 @@ angular
 
 Story.$inject = ['$resource'];
 function Story($resource){
-  var Story = $resource('http://localhost:3000/stories/:id', null, {
+  var Story = $resource('https://ghoststoriesapi.herokuapp.com/stories/:id', null, {
     'update' : { method: 'PATCH' }
   });
   return Story;

@@ -87,7 +87,7 @@ function MainController($http, $timeout, $auth, User, Story){
 
   function getStories() {
     $http
-      .get('http://localhost:3000/stories')
+      .get('https://ghoststoriesapi.herokuapp.com/stories')
       .then(function(res) {
         self.all = res.data;
         self.all.forEach(function(story, i) {
@@ -106,7 +106,7 @@ function MainController($http, $timeout, $auth, User, Story){
   self.getStory = function(story) {
     // console.log('click')
     $http
-    .get('http://localhost:3000/stories/' + story._id)
+    .get('https://ghoststoriesapi.herokuapp.com/stories/' + story._id)
     .then(function(res) {
       // console.log(res)
       // self.story = res.data;
