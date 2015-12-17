@@ -1,6 +1,6 @@
 angular
   .module("ghost-storiesApp", ['angular-jwt', 'satellizer', 'ui.router','ngResource'])
-  .constant('API', 'http://localhost:3000') 
+  .constant('API', 'http://ghoststoriesapi.herokuapp.com') 
   .config(oauthConfig)
   .config(function($httpProvider){
     $httpProvider.interceptors.push('AuthInterceptor');
