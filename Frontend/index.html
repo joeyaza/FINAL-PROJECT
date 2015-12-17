@@ -45,11 +45,11 @@
 
   <div class="tab">
     <a ui-sref="home">Go_Home</a>
-    <a ui-sref="form">Add_Story</a>
-    <a ui-sref="stories">Stories</a>
-    <a ui-sref="signup">Sign_Up</a>
-    <a ui-sref="login">Log_In</a>
-    <a ng-click="main.disappear()">Log_Out</a>
+    <a ng-show="main.loggedIn()" ui-sref="form">Add_Story</a>
+    <a ng-show="main.loggedIn()" ui-sref="stories">Stories</a>
+    <a ng-hide="main.loggedIn()" ui-sref="signup">Sign_Up</a>
+    <a ng-hide="main.loggedIn()" ui-sref="login">Log_In</a>
+    <a ng-show="main.loggedIn()" ng-click="main.disappear()">Log_Out</a>
     <a ng-click="main.authenticate('facebook')">Facebook</a> 
   </div>
 
