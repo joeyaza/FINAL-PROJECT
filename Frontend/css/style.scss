@@ -104,7 +104,7 @@ p {
 
 //the writing
 .ghost {
-  font-size: 80px;
+  font-size: 90px;
   margin-top: -10px;
   padding-top: 90px; 
   z-index: -1;
@@ -311,4 +311,9 @@ h2#login {
 
 div.card-image img {
   width: 20px;
+}
+
+#jquerybuddy span {
+   text-shadow: 0 0 4px rgba(0,100,0,1);
+   color: transparent;
 }

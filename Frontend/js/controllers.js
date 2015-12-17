@@ -38,10 +38,11 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
 
   self.signup = function() {
     $http
-      .post(API + '/signup', self.user)
-      .then(function(res){
-        handleLogin(res);
-      });
+    .post(API + '/signup', self.user)
+    .then(function(res){
+      handleLogin(res);
+      $location.path('/stories');
+    });
   }
 
   // self.login = function() {
@@ -52,10 +53,11 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   self.login = function() {
     console.log("LOGIN");
     $http
-      .post(API + '/login', self.user)
-      .then(function(res){
-        handleLogin(res);
-      });
+    .post(API + '/login', self.user)
+    .then(function(res){
+      handleLogin(res);
+      $location.path('/stories');
+    });
   }
 
   self.disappear = function() {
