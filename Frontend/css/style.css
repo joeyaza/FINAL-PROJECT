@@ -135,9 +135,6 @@ p {
   text-shadow: 1px 1px grey;
   color: white; }
 
-.author {
-  margin-left: -30px; }
-
 .title, .author {
   position: relative;
   font-weight: bold;

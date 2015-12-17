@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>GHOST STORIES</title>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="https://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <!-- Compiled and minified CSS -->
@@ -12,8 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 <script src="//cdn.jsdelivr.net/satellizer/0.13.1/satellizer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
-<script type="text/javascript" src="./js/main.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
+<script type="text/javascript" src="./js/services/authInterceptor.js"></script>
+<script type="text/javascript" src="./js/services/tokenService.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
+<script type="text/javascript" src="./js/main.js"></script>
 <script type="text/javascript" src="./js/controllers.js"></script>
 <script type="text/javascript" src="./js/tileView.js"></script>
 <script type="text/javascript" src="js/resources/user.js"></script>
@@ -28,25 +32,23 @@
 </head>
 <body>
 
-<!-- <audio controls>
+<audio controls>
 
 
-  <source src="../sounds/dark.mp3" type="audio/mpeg">
-  <source src="../sounds/ever.mp3" type="audio/mpeg">
-  <source src="../sounds/Creepy.mp3" type="audio/mpeg">
+
   <source src="../sounds/whispers.mp3" type="audio/mpeg">
   
   
-</audio> -->
+</audio>
 
 <main ng-controller="MainController as main">
 
   <div class="tab">
-    <a ui-sref="home">Go</a>
-    <a ui-sref="form">Add.Story</a>
+    <a ui-sref="home">Go_Home</a>
+    <a ui-sref="form">Add_Story</a>
     <a ui-sref="stories">Stories</a>
-    <a ui-sref="signup">SignUp</a>
-    <a ui-sref="login">LogIn</a>
+    <a ui-sref="signup">Sig_Up</a>
+    <a ui-sref="login">Log_In</a>
     <a ng-click="main.authenticate('facebook')">Facebook</a> 
   </div>
 

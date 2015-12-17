@@ -1,16 +1,18 @@
 angular
-  .module("ghost-storiesApp", ['satellizer', 'ui.router','ngResource'])
-  .constant('API', 'http://ghoststoriesapi.herokuapp.com') 
-  .config(oauthConfig)
+  .module("ghost-storiesApp", ['angular-jwt', 'satellizer', 'ui.router','ngResource'])
+  .constant('API', 'http://localhost:3000') 
+  // .config(oauthConfig)
+  .config(function($httpProvider){
+    $httpProvider.interceptors.push('AuthInterceptor');
+  })
   .config(MainRouter);
-  
-  oauthConfig.$inject = ['API','$authProvider'];
-  function oauthConfig(API, $authProvider) {
-    $authProvider.facebook({
-      url: API + '/auth/facebook', 
-      clientId: '880329805408488' 
-    });
-  }
+  // oauthConfig.$inject = ['API','$authProvider'];
+  // function oauthConfig(API, $authProvider) {
+  //   $authProvider.facebook({
+  //     url: API + '/auth/facebook', 
+  //     clientId: '880329805408488' 
+  //   });
+  // }
 
   function MainRouter($stateProvider, $urlRouterProvider) {
 

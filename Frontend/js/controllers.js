@@ -2,8 +2,8 @@ angular
   .module("ghost-storiesApp")
   .controller("MainController", MainController);
 
-MainController.$inject = ['$http', '$timeout', '$auth', 'User', 'Story'];
-function MainController($http, $timeout, $auth, User, Story){
+MainController.$inject = ['TokenService', '$http', '$timeout', '$auth', 'API', 'User', 'Story', '$location'];
+function MainController(TokenService, $http, $timeout, $auth, API, User, Story, $location){
   var self = this;
   self.all = [];
   this.newUser = {};
@@ -12,20 +12,91 @@ function MainController($http, $timeout, $auth, User, Story){
   this.story = {
     tiles: [{}]
   };
+  self.user = {};
+
+    function handleLogin(res) {
+      console.log("rane is a mofo")
+      // var token = res.token ? res.token : null;
+      var token = res.data.token ? res.data.token : null;
+      // Console.log our response from the API
+      if(token) {
+        console.log(res);
+        // display users
+        getStories();
+        self.user = TokenService.getUser();
+      }
+
+      self.message = res.message;
+    }
+
+  // self user is what we pass into the form in the index
+
+  // self.signup = function() {
+  //   console.log(self.user);
+  //   User.signup(self.user, handleLogin);
+  // }
+
+  self.signup = function() {
+    $http
+      .post(API + '/signup', self.user)
+      .then(function(res){
+        handleLogin(res);
+      });
+  }
+
+  // self.login = function() {
+  //   console.log(self.user)
+  //   //User.login(self.user, handleLogin);
+  // }
+
+  self.login = function() {
+    console.log("LOGIN");
+    $http
+      .post(API + '/login', self.user)
+      .then(function(res){
+        handleLogin(res);
+      });
+  }
+
+  self.disappear = function() {
+    TokenService.removeToken();
+    self.all = [];
+    self.user = {};
+  }
+
+  self.loggedIn = function(){
+    return !! TokenService.getToken();
+  }
+
+  self.getUsers = function() {
+    self.all = User.query();
+  }
+
+  // self.isLoggedIn = function() {
+  // }
+
+  if(self.loggedIn()){
+    // self.getUsers();
+    self.user = TokenService.getUser();
+  }
+
+  // if(self.isLoggedIn()) {
+  //   self.getUsers();
+  // }
 
 
   // for facebook
-  this.authenticate = function(provider) {
-    $auth.authenticate(provider);
-  }
+  // this.authenticate = function(provider) {
+  //   $auth.authenticate(provider);
+  // }
+
+
+
 
   //the index
   this.users = User.query();
   
 
-  function getStories() {
-    self.all = Story.query();
-  }
 
   //create
   this.addUser = function(){
@@ -57,6 +128,7 @@ function MainController($http, $timeout, $auth, User, Story){
     });
   }
 
+
   // Delete
   this.deleteUser = function(user, index){
     User.delete({ id: user._id }, function() {
@@ -64,9 +136,8 @@ function MainController($http, $timeout, $auth, User, Story){
     });
   }
 
-  this.deleteStory = function(story){
-    Story.delete({ id: story._id }, function(story){
-      var index = self.all.indexOf(story);
+  this.deleteStory = function(story, index){
+    Story.delete({ id: story._id }, function(){
       self.all.splice(index, 1);
     });
   }
@@ -82,19 +153,39 @@ function MainController($http, $timeout, $auth, User, Story){
   }
 
   this.addStory = function() {
-    if (self.story._id) {
-     Story.update({ id: self.story._id }, self.story, function(){
-       self.story = {};
-     });
-    } else {
-      Story.save(self.story, function(story) {
-        self.stories.push(story)
-        self.story = {
-          tiles: [{}]
-        }
-      });
-    }
+    Story.save(self.story, function(story) {
+      self.all.push(story)
+      self.story = {
+        tiles: [{}]
+      }
+      getStories();
+      $location.path('/stories');
+    });
   }
+
+  this.updateStory = function() {
+      Story.update({ id: self.story._id }, self.story, function() {
+        self.story = {};
+      })
+    }
+
+  // this.addStory = function() {
+  //   if (self.story._id) {
+  //    Story.update({ id: self.story._id }, self.story, function(){
+  //      self.story = {};
+  //    });
+  //   } else {
+  //     Story.save(self.story, function(story) {
+  //       self.all.push(story)
+  //       self.story = {
+  //         tiles: [{}]
+  //       }
+  //       getStories();
+  //       $location.path('/stories');
+
+  //     });
+  //   }
+  // }
 
   // function getStories() {
   //   $http
@@ -114,12 +205,19 @@ function MainController($http, $timeout, $auth, User, Story){
   //     });
   // }
 
+
+  function getStories() {
+    self.all = Story.query();
+  }
+
+
+
   self.getStory = function(story) {
     // console.log('click')
     $http
-    .get('https://ghoststoriesapi.herokuapp.com/stories/' + story._id)
+    .get('http://localhost:3000/stories/' + story._id)
     .then(function(res) {
-      // console.log(res)
+      console.log(res)
       // self.story = res.data;
       self.story = res.data;
       console.log(self.story);
@@ -136,7 +234,7 @@ function MainController($http, $timeout, $auth, User, Story){
   }
 
 
-  getStories();
+  // getStories();
 
 
   
