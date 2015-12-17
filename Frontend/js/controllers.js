@@ -60,8 +60,6 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
 
   self.disappear = function() {
     TokenService.removeToken();
-    self.all = [];
-    self.user = {};
   }
 
   self.loggedIn = function(){
