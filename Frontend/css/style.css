@@ -236,4 +236,24 @@ div.card-image img {
   text-shadow: 0 0 4px darkgreen;
   color: transparent; }
 
+.form {
+  color: white; }
+
+label {
+  color: white; }
+
+.button1 {
+  margin-top: 10px;
+  color: black; }
+
+.tile-text {
+  height: 300px; }
+
+#button1 {
+  width: 500px;
+  margin-left: 250px; }
+
+#button2 {
+  width: 1000px; }
+
 /*# sourceMappingURL=style.css.map */

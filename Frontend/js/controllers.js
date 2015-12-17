@@ -2,8 +2,8 @@ angular
   .module("ghost-storiesApp")
   .controller("MainController", MainController);
 
-MainController.$inject = ['TokenService', '$http', '$timeout', '$auth', 'API', 'User', 'Story', '$location'];
-function MainController(TokenService, $http, $timeout, $auth, API, User, Story, $location){
+MainController.$inject = ['TokenService', '$http', '$timeout', '$auth', 'API', 'User', 'Story', '$location', '$scope'];
+function MainController(TokenService, $http, $timeout, $auth, API, User, Story, $location, $scope){
   var self = this;
   self.all = [];
   this.newUser = {};
@@ -14,20 +14,50 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   };
   self.user = {};
 
-    function handleLogin(res) {
-      console.log("rane is a mofo")
-      // var token = res.token ? res.token : null;
-      var token = res.data.token ? res.data.token : null;
-      // Console.log our response from the API
-      if(token) {
-        console.log(res);
-        // display users
-        getStories();
-        self.user = TokenService.getUser();
-      }
-
-      self.message = res.message;
+  function handleLogin(res) {
+    console.log("rane is a mofo")
+    // var token = res.token ? res.token : null;
+    var token = res.data.token ? res.data.token : null;
+    // Console.log our response from the API
+    if(token) {
+      console.log(res);
+      // display users
+      getStories();
+      self.user = TokenService.getUser();
     }
+
+    self.message = res.message;
+  }
+
+  $scope.$on('$viewContentLoaded', function () {
+    $("#jquerybuddy").lettering();
+          
+    // hack to get animations to run again
+    $("#jquerybuddy").click(function() { 
+      var el = $(this),  
+         newone = el.clone();
+      el.before(newone);
+      el.remove();
+    }); 
+  })
+    var text = $("#jquerybuddy"),
+    numLetters = text.find("span").length;
+
+    function randomBlurize() {
+    text.find("span:nth-child(" + (Math.floor(Math.random()*numLetters)+1) + ")")
+      .animate({
+        'textShadowBlur': Math.floor(Math.random()*25)+4,
+        'textShadowColor': 'rgba(0,100,0,' + (Math.floor(Math.random()*200)+55) + ')'
+      });
+    // Call itself recurssively
+    setTimeout(randomBlurize, 100);
+    } // Call once
+    randomBlurize();
+
+
+
+
+
 
   // self user is what we pass into the form in the index
 
@@ -235,7 +265,9 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   }
 
 
-  // getStories();
+  if(!!TokenService.getToken()) {
+    getStories();
+  }
 
 
   
