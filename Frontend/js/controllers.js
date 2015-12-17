@@ -29,30 +29,30 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
     self.message = res.message;
   }
 
-  $scope.$on('$viewContentLoaded', function () {
-    $("#jquerybuddy").lettering();
+  // $scope.$on('$viewContentLoaded', function () {
+  //   $("#jquerybuddy").lettering();
           
-    // hack to get animations to run again
-    $("#jquerybuddy").click(function() { 
-      var el = $(this),  
-         newone = el.clone();
-      el.before(newone);
-      el.remove();
-    }); 
-  })
-    var text = $("#jquerybuddy"),
-    numLetters = text.find("span").length;
+  //   // hack to get animations to run again
+  //   $("#jquerybuddy").click(function() { 
+  //     var el = $(this),  
+  //        newone = el.clone();
+  //     el.before(newone);
+  //     el.remove();
+  //   }); 
+  // })
+  //   var text = $("#jquerybuddy"),
+  //   numLetters = text.find("span").length;
 
-    function randomBlurize() {
-    text.find("span:nth-child(" + (Math.floor(Math.random()*numLetters)+1) + ")")
-      .animate({
-        'textShadowBlur': Math.floor(Math.random()*25)+4,
-        'textShadowColor': 'rgba(0,100,0,' + (Math.floor(Math.random()*200)+55) + ')'
-      });
-    // Call itself recurssively
-    setTimeout(randomBlurize, 100);
-    } // Call once
-    randomBlurize();
+  //   function randomBlurize() {
+  //   text.find("#jquerybuddy(" + (Math.floor(Math.random()*numLetters)+1) + ")")
+  //     .animate({
+  //       'textShadowBlur': Math.floor(Math.random()*25)+4,
+  //       'textShadowColor': 'rgba(0,100,0,' + (Math.floor(Math.random()*200)+55) + ')'
+  //     });
+  //   // Call itself recurssively
+  //   setTimeout(randomBlurize, 100);
+  //   } // Call once
+  //   randomBlurize();
 
 
 

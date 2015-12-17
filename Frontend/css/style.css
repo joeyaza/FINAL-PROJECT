@@ -76,17 +76,20 @@ p {
   margin-top: -76px; }
 
 .ghost {
-  font-size: 90px;
+  color: #f0f0f5;
+  font-size: 85px;
   margin-top: -10px;
   padding-top: 90px;
   z-index: -1;
-  text-align: center; }
+  text-align: center;
+  opacity: 0.5;
+  color: white; }
 
 .slide1 {
   color: #fff; }
 
 #ghost {
-  margin-top: -71px;
+  margin-top: -111px;
   width: 1400px;
   height: 550px;
   margin-left: 20px;
@@ -231,10 +234,6 @@ h2#login {
 
 div.card-image img {
   width: 20px; }
-
-#jquerybuddy span {
-  text-shadow: 0 0 4px darkgreen;
-  color: transparent; }
 
 .form {
   color: white; }
