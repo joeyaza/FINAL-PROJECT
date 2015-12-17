@@ -214,7 +214,7 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   self.getStory = function(story) {
     // console.log('click')
     $http
-    .get('http://localhost:3000/stories/' + story._id)
+    .get(API + '/stories/' + story._id)
     .then(function(res) {
       console.log(res)
       // self.story = res.data;
