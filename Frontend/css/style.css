@@ -233,6 +233,9 @@ h2#login {
   z-index: -1;
   text-align: center; }
 
+.card {
+  margin: 0 auto; }
+
 div.card-image img {
   width: 20px; }
 
@@ -275,5 +278,12 @@ label {
 
 .grizzly {
   margin-top: 50px; }
+
+.card .card-action a {
+  color: white; }
+
+.delete-button {
+  color: white;
+  background-color: black; }
 
 /*# sourceMappingURL=style.css.map */

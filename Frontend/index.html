@@ -65,7 +65,7 @@
     <a ng-hide="main.loggedIn()" ui-sref="signup">Sign_Up</a>
     <a ng-hide="main.loggedIn()" ui-sref="login">Log_In</a>
     <a ng-show="main.loggedIn()" ng-click="main.disappear()">Log_Out</a>
-    <a ng-click="main.authenticate('facebook')">Facebook</a> 
+    <a ng-hide="main.loggedIn()" ng-click="main.authenticate('facebook')">Facebook_Log_In</a> 
   </div>
 
 <!--   <div class="tableft">
