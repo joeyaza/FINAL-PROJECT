@@ -9,6 +9,8 @@ html, body {
 
 h2 {
   color: white;
+  font-weight: bold;
+
 }
 
 .navigation {
@@ -322,6 +324,7 @@ div.card-image img {
 
 label {
   color:white;
+  text-size:40px;
 }
 
 .button1 {
@@ -340,4 +343,27 @@ label {
 
 #button2 {
   width: 1000px;
+}
+
+.form-label {
+  color:white;
+  font-size: 30px;
+  font-family: 'Josefin Slab', serif; 
+  font-weight: bold;
+  text-shadow: 1px 1px #999999;
+}
+
+.form-label-two {
+  color:black;
+  font-size: 20px;
+  font-family: 'Josefin Slab', serif; 
+  font-weight: bold;
+}
+
+.layout2 {
+  width: 1000px;
+}
+
+.grizzly {
+  margin-top: 50px;
 }

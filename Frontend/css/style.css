@@ -7,7 +7,8 @@ html, body {
   background-color: black; }
 
 h2 {
-  color: white; }
+  color: white;
+  font-weight: bold; }
 
 .navigation {
   padding: 0;
@@ -239,7 +240,8 @@ div.card-image img {
   color: white; }
 
 label {
-  color: white; }
+  color: white;
+  text-size: 40px; }
 
 .button1 {
   margin-top: 10px;
@@ -254,5 +256,24 @@ label {
 
 #button2 {
   width: 1000px; }
+
+.form-label {
+  color: white;
+  font-size: 30px;
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold;
+  text-shadow: 1px 1px #999999; }
+
+.form-label-two {
+  color: black;
+  font-size: 20px;
+  font-family: 'Josefin Slab', serif;
+  font-weight: bold; }
+
+.layout2 {
+  width: 1000px; }
+
+.grizzly {
+  margin-top: 50px; }
 
 /*# sourceMappingURL=style.css.map */

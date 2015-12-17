@@ -5,9 +5,9 @@ var bcrypt   = require('bcrypt');
 var UserSchema = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, unique: true, required: true },
-  password: { type: String, required: true },
+  password: { type: String},
   picture: String,
-  // facebookId: String,
+  facebookId: String,
   stories: [{type: mongoose.Schema.ObjectId, ref: 'Story'}]
 });
 
@@ -25,19 +25,20 @@ UserSchema.methods.authenticate = function(password, callback) {
   });
 };
 
-UserSchema.pre('save', function(next) {
-   var user = this;  
-   console.log(user)
+// UserSchema.pre('save', function(next) {
+//    var user = this;  
+//    console.log(user)
 
-   bcrypt.genSalt(5, function(err, salt) {  /// 5 times
-     if (err) next(err);
-     bcrypt.hash(user.password, salt, function(err, hashedPassword) {
-        if(err) next(err);
-       user.password = hashedPassword;
-       next();
-     });
-   });   
-});
+//    bcrypt.genSalt(5, function(err, salt) {  /// 5 times
+//      if (err) next(err);
+//      bcrypt.hash(user.password, salt, function(err, hashedPassword) {
+//       console.log(err)
+//         if(err) next(err);
+//        user.password = hashedPassword;
+//        next();
+//      });
+//    });   
+// });
 
 
 

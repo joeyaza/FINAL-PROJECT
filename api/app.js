@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app
   .use('/', expressJWT({secret: config.secret})
-  .unless({path: ['/signup', '/login'], method: 'post'}));
+  .unless({path: ['/signup', '/login', '/auth/facebook'], method: 'post'}));
 
 app.use(routes);
 
@@ -70,51 +70,53 @@ app.post('/login', function(req, res) {
   });
 });
 
-// app.post('/auth/facebook', function(req, res) {
-//   var params = {
-//     code: req.body.code,
-//     client_id: req.body.clientId,
-//     client_secret: process.env.GHOSTFACEBOOK_API_SECRET,
-//     redirect_uri: config.appUrl + "/"
-//   };
+app.post('/auth/facebook', function(req, res) {
+  var params = {
+    code: req.body.code,
+    client_id: req.body.clientId,
+    client_secret: process.env.GHOSTFACEBOOK_API_SECRET,
+    redirect_uri: config.appUrl + "/"
+  };
 
-//   request.get({ url: config.oauth.facebook.accessTokenUrl, qs: params, json: true })
-//       .then(function(accessToken) {
-//         // step 2, we use the access token to get the user's profile data from facebook's api
-//         return request.get({ url: config.oauth.facebook.profileUrl, qs: accessToken, json: true });
-//       })
-//       .then(function(profile) {
-//         // step 3, we try to find a user in our database by their email
-//         return User.findOne({ email: profile.email })
-//           .then(function(user) {
-//             // if we find the user, we set their facebookId and picture to their profile data
-//             if(user) {
-//               user.facebookId = profile.id;
-//               user.picture = user.picture || profile.picture.data.url;
-//             }
-//             else {
-//               // otherwise, we create a new user record with the user's profile data from facebook
-//               user = new User({
-//                 facebookId: profile.id,
-//                 name: profile.name,
-//                 picture: profile.picture.data.url,
-//                 email: profile.email
-//               });
-//             }
-//             // either way, we save the user record
-//             return user.save();
-//           })
-//         })
-//         .then(function(user) {
-//           // step 4, we create a JWT and send it back to our angular app
-//           var token = jwt.sign(user, config.secret, { expiresIn: '24h' });
-//           return res.send({ token: token });
-//         })
-//         .catch(function(err) {
-//           // we handle any errors here
-//           return res.status(500).json({ error: err });
-//         });
-//   });
+  request.get({ url: config.oauth.facebook.accessTokenUrl, qs: params, json: true })
+      .then(function(accessToken) {
+        // step 2, we use the access token to get the user's profile data from facebook's api
+        return request.get({ url: config.oauth.facebook.profileUrl, qs: accessToken, json: true });
+      })
+      .then(function(profile) {
+        // step 3, we try to find a user in our database by their email
+        return User.findOne({ email: profile.email })
+          .then(function(user) {
+            console.log("step 3")
+            // if we find the user, we set their facebookId and picture to their profile data
+            if(user) {
+              user.facebookId = profile.id;
+              user.picture = user.picture || profile.picture.data.url;
+            }
+            else {
+              // otherwise, we create a new user record with the user's profile data from facebook
+              user = new User({
+                facebookId: profile.id,
+                name: profile.name,
+                picture: profile.picture.data.url,
+                email: profile.email
+              });
+            }
+            // either way, we save the user record
+            return user.save();
+          })
+        })
+        .then(function(user) {
+          console.log("step 4");
+          // step 4, we create a JWT and send it back to our angular app
+          var token = jwt.sign(user, config.secret, { expiresIn: '24h' });
+          return res.send({ token: token });
+        })
+        .catch(function(err) {
+          // we handle any errors here
+          return res.status(500).json({ error: err });
+        });
+  });
 
 
 app.listen(process.env.PORT || 3000);
