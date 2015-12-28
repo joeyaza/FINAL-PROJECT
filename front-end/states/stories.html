@@ -1,0 +1,32 @@
+
+<H2 class="horror">THE HORROR</H2>
+<div class="row">
+     <div class="grid">
+     <ul class="col l12">
+       <div ng-repeat="story in main.all" class="card grid-item">
+       <li class="col l4">
+         <div class="card-image">
+           <img ng-src="{{story.tiles[0].image}}" width="300px" height="265px">
+           <span class="card-title"> </span>
+         </div>
+         <div class="card-content">
+          <div class="card-action">
+            <a ui-sref="story" ng-click="main.getStory(story)">{{story.title}}<br>{{story.author}}</a>
+
+            <button class="delete-button" ng-click="main.deleteStory(story, $index)">delete</button>
+ <!--            <button ng-click="main.editStory(story, $index)">edit</button> -->
+          </div>
+         </div>
+        </li>
+        
+       </div>
+       </ul>
+     </div>
+   </div>
+
+   <div class="grid">
+     <div class="grid-item">...</div>
+     <div class="grid-item grid-item--width2">...</div>
+     <div class="grid-item">...</div>
+     ...
+   </div>

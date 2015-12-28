@@ -1,0 +1,13 @@
+
+<div class="login">
+<h2 id="login"> Log In</h2>
+  <div class="container">
+    <form id="login" class="col s12" method="post" ng-submit="main.login()">
+      <div class="row">
+        <input type="email" name="email" class="validate" placeholder="Email" autocomplete="off" ng-model="main.user.email">
+        <input type="password" name="password" class="validate" placeholder="Password" autocomplete="off" ng-model="main.user.password">
+      </div>
+      <button type="submit" class="btn waves-effect modal-action modal-close">Submit<i class="material-icons right"></i></button>
+    </form>
+  </div>
+</div>

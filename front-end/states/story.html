@@ -1,0 +1,14 @@
+<!-- <div ng-repeat="story in main.all">
+  <div class="container" ng-repeat="tile in story.tiles">
+    <div class="title" ng-show="$first">{{story.title}}</div>
+    <div class="author" ng-show="$first">{{story.author}}</div>
+    <tile tile="tile"></tile>
+  </div>
+</div> -->
+<div class="stellar">
+  <div class="title1 animated fadeIn"> {{main.story.title}} </div>
+  <div class ="author1 animated fadeIn"> {{main.story.author}} </div>
+  <div class="container1" ng-repeat="tile in main.story.tiles">
+    <tile tile="tile"></tile>
+  </div>
+</div>

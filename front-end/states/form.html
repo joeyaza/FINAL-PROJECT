@@ -1,0 +1,46 @@
+
+<div class="container">
+<h2 class="horror">ADD A GRIZZLY STORY</h2>
+<div class="form">
+  <form class ="form" ng-submit="main.addStory()">
+  
+      <div class="title form1">
+      <label class ="form-label" for="title">Story Title.</label>
+      <input type="text" name="title" ng-model="main.story.title">
+      </div>
+      <div class="author form1">
+      <label class ="form-label" for="author">Author.</label>
+      <input type="text" name="author" ng-model="main.story.author">
+      </div>
+
+      <br>
+      <div ng-repeat="tile in main.story.tiles">
+        <div class="form-text form1">
+        <label class ="form-label" for="text">Tile text.</label>
+        <textarea class="tile-text" type="text" name="text" ng-model="tile.text"></textarea>
+        </div>
+        <br>
+        <div class="form-image form1">
+        <label class ="form-label" for="image">And an image.</label>
+        <input type="text" name="image" ng-model="tile.image">
+        </div>
+        <br>
+        <div class="form-layout button1 form-label-two layout2">
+        <!-- <label for ="layout">Whats the layout?</label> -->
+          <select name="layout" ng-model="tile.layout">
+            <option value="">And the Layout?</option>
+            <option value="1">Text and Image</option>
+            <option value="2">Just an Image</option>
+            <option value="3">Just text</option>
+          </select>
+        </div>
+        <br>
+        <button id="button1" class='button1 form-label-two' ng-click="main.addTile($event)">Add an Extra tile</button>
+      </div>
+      <br>
+      <button id="button2" class='button1 form-label-two' type='submit'>Add Story</button>
+      <br>
+      <br>
+  </form>
+</div>
+</div>
