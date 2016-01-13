@@ -101,7 +101,8 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   this.authenticate = function(provider) {
     $auth.authenticate(provider).then(function(response){
       if(response.status == 200){
-        getStories()
+        getStories();
+        $location.path('/stories');
       }
     });
   }

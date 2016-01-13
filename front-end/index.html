@@ -2,9 +2,10 @@
 <html ng-app="ghost-storiesApp">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GHOST STORIES</title>
 
-<!-- ***************** SCRIPTS ***************-->
+<!-- ***************** SCRIPTS **************-->
 
 <!-- JAVASCRIPT -->
 
@@ -35,6 +36,7 @@
 <link rel="stylesheet" type="text/css" href="./css/normalize.css">
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/animate.css">
+<link rel="shortcut icon" href="favicon.png" type="image/png" />
 
 
   <title></title>
@@ -57,25 +59,21 @@
   <!-- displays partial here... -->
   </div>
 
+<!-- calling my states -->
 <!-- my nav bar -->
   <div class="tab">
     <a ui-sref="home">Go_Home</a>
     <a ng-show="main.loggedIn()" ui-sref="form">Add_Story</a>
     <a ng-show="main.loggedIn()" ui-sref="stories">Stories</a>
     <a ng-hide="main.loggedIn()" ui-sref="signup">Sign_Up</a>
-    <a ui-sref="about">About</a>
     <a ng-hide="main.loggedIn()" ui-sref="login">Log_In</a>
-    <a ng-show="main.loggedIn()" ng-click="main.disappear()">Log_Out</a>
-    <a ng-hide="main.loggedIn()" ng-click="main.authenticate('facebook')">Facebook_Log_In</a> 
+    <a ng-show="main.loggedIn()" ng-click="main.disappear()">Log_Out</a> 
+    <a ui-sref="about">About</a>
   </div>
 
 <!--   <div class="tableft">
     <a ui-sref="home"><img ng-src="http://downloadicons.net/sites/default/files/white-ghost-icons-43289.png"id="logo"/>
   </div> -->
-
-<!-- calling my states -->
-
-  
 
 </main>
 

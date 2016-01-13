@@ -1,4 +1,4 @@
-
+<div class="stories-full">
 <H2 class="horror">THE HORROR</H2>
 <div class="row">
      <div class="grid">
@@ -6,7 +6,7 @@
        <div ng-repeat="story in main.all" class="card grid-item">
        <li class="col l4">
          <div class="card-image">
-           <img ng-src="{{story.tiles[0].image}}" width="300px" height="265px">
+           <img ng-src="{{story.tiles[0].image || story.tiles[1].image || story.tiles[2].image}}" width="300px" height="265px">
            <span class="card-title"> </span>
          </div>
          <div class="card-content">
@@ -30,3 +30,4 @@
      <div class="grid-item">...</div>
      ...
    </div>
+  </div>

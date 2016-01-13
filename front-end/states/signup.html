@@ -1,13 +1,19 @@
-<div class="signup">
-  <div class="container">
-    <h2> SIGN UP </h2>
-    <form id="register" class="col s12" method="post" ng-submit="main.signup()">
-      <div class="row">
-        <input type="text" name="name" class="validate" placeholder="Username" autocomplete="off" ng-model="main.user.name">
-        <input type="email" name="email" class="validate" placeholder="Email" autocomplete="off" ng-model="main.user.email">
-        <input type="password" name="password" class="validate" placeholder="Password" autocomplete="off" ng-model="main.user.password">
-      </div>
-      <button type="submit" class="btn waves-effect modal-action modal-close">Submit<i class="material-icons right"></i></button>
-    </form>
+<div class="signup-full">
+  <H2 class="horror">THE FEAR</H2>
+  <div class="signup">
+    <div class="container">
+      <h4> SIGN UP.. FOR A SCARE.. </h4>
+      <form id="register" class="col s12" method="post" ng-submit="main.signup()">
+        <div class="row">
+          <input type="text" name="name" class="validate" placeholder="Username" autocomplete="off" ng-model="main.user.name">
+          <input type="email" name="email" class="validate" placeholder="Email" autocomplete="off" ng-model="main.user.email">
+          <input type="password" name="password" class="validate" placeholder="Password" autocomplete="off" ng-model="main.user.password">
+        </div>
+        <button type="submit" class="delete-button">Submit<i class="material-icons right"></i></button>
+      </form>
+      <br>
+      <br>
+      <a class="sign-up-fb" ng-hide="main.loggedIn()" ng-click="main.authenticate('facebook')">OR LOG-IN VIA FACEBOOK</a>
+    </div>
   </div>
 </div>
