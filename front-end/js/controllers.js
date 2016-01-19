@@ -29,19 +29,6 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
   }
 
 
-
-
-
-
-
-
-  // self user is what we pass into the form in the index
-
-  // self.signup = function() {
-  //   console.log(self.user);
-  //   User.signup(self.user, handleLogin);
-  // }
-
   self.signup = function() {
     $http
     .post(API + '/signup', self.user)
@@ -52,10 +39,7 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
     });
   }
 
-  // self.login = function() {
-  //   console.log(self.user)
-  //   //User.login(self.user, handleLogin);
-  // }
+
 
   self.login = function() {
     console.log("LOGIN");
@@ -83,19 +67,13 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
     self.all = User.query();
   }
 
-  // self.isLoggedIn = function() {
-  // }
+
 
   if(self.loggedIn()){
     // self.getUsers();
     self.user = TokenService.getUser();
   }
 
-  // if(self.isLoggedIn()) {
-  //   self.getUsers();
-  // }
-
-// for fb
 
 
   this.authenticate = function(provider) {
@@ -186,42 +164,6 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
       })
     }
 
-  // this.addStory = function() {
-  //   if (self.story._id) {
-  //    Story.update({ id: self.story._id }, self.story, function(){
-  //      self.story = {};
-  //    });
-  //   } else {
-  //     Story.save(self.story, function(story) {
-  //       self.all.push(story)
-  //       self.story = {
-  //         tiles: [{}]
-  //       }
-  //       getStories();
-  //       $location.path('/stories');
-
-  //     });
-  //   }
-  // }
-
-  // function getStories() {
-  //   $http
-  //     .get('https://ghoststoriesapi.herokuapp.com/stories')
-  //     .then(function(res) {
-  //       self.all = res.data;
-  //       self.all.forEach(function(story, i) {
-  //         self.all[i].tiles = self.all[i].tiles.map(function(tile) {
-  //           tile.stellarSpeed = tile.layout === 1 ? 0.6 : tile.layout === 2 ? 0.3 : 1.9;
-  //           return tile;
-  //         });
-  //       });
-  //       console.log(self.all);
-  //       // $timeout(function() {
-  //       // //   initializeStellar(jQuery);
-  //       // },0);
-  //     });
-  // }
-
 
   function getStories() {
     self.all = Story.query();
@@ -242,10 +184,6 @@ function MainController(TokenService, $http, $timeout, $auth, API, User, Story, 
         tile.stellarSpeed = tile.layout === 1 ? 0.3 : tile.layout === 2 ? 2 : 1;
         return tile;
       });
-
-      // $timeout(function() {
-      // //   initializeStellar(jQuery);
-      // },0);
     });
 
   }
